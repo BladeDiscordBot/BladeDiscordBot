@@ -86,7 +86,7 @@ async def banall(ctx):
                 await bot.ban(member)
                 print ("User with ID " + member.id + " has been BANNED from the targeted server. Adios!")
             except:
-                print ("User with ID " + member.id + " could not be booted from the server. Maybe you got banned?")
+                print ("User with ID " + member.id + " could not be banned from the server. Maybe you got banned?")
                 pass
         print ("Operation Completed: 'banall'")
 
@@ -99,7 +99,7 @@ async def ykickall(ctx):
                 try:
                     sent = await bot.send_message(ctx.message.channel, yprefix + "kick " + member.mention + " bye")
                     await bot.delete_message(sent)
-                    print (member.id + " has been banned from selected server using the YAGPDB bot.")
+                    print (member.id + " has been kicked from selected server using the YAGPDB bot.")
                 except:
                     print ("Could NOT send/delete message. Maybe you got banned?")
                     pass
