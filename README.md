@@ -1,7 +1,7 @@
 # BladeDiscordBot
 A Discord self-bot with multipurpose/server nuking features.
 
-This version of the bot is free for you to use, distribute, etc. You may pay to receive the premium version by e-mailing me at bladediscordbot@gmail.com. 
+This version of the bot is free for you to use, distribute, etc. You may pay to receive the premium version by e-mailing me at bladediscordbot@gmail.com. It only costs $10 and will guarantee you updates for the life of the project.
 
 # Free Commands
 These commands can be run by cloning this repository and running the Python script.
