@@ -17,7 +17,7 @@
 
 ### CONFIGURATION ###
 # ----------------- #
-token = "NDkzNTYyMjE2MzIzMzUwNTI5.DoohfA.OUElWyiYG39nkd8mQDjRZt9ASCM" # https://discordhelp.net/discord-token
+token = "" # https://discordhelp.net/discord-token
 prefix = "!" # This is the symbol that you will need to precede every command with.
 yprefix = "-" # This is the symbol used for the YAGPDB bot in the server you're targeting. It is usually this dash (-) but in the case it isn't, change it here.
 # ----------------- #
