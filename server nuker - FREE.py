@@ -1,6 +1,6 @@
 ### BLADE DISCORD MULTIPURPOSE/NUKER SELF-BOT ###
 ### THE ONLY MULTI-PURPOSE SELF-BOT WITH YAGPDB.XYZ BOT CAPABALITIES ###
-### COPYRIGHT 2018 4xanny#9783 ###
+### COPYRIGHT 2018 BladeDiscordBot ###
 ### SHOUTOUT DA532, HIS BOT IS THE REASON I WROTE MINE AND IS HEAVILY INSPRIED BY IT ###
 
 ### DISCLAIMER ###
@@ -164,7 +164,7 @@ async def newname(ctx):
         await bot.change_nickname(ctx.message.author, newname)
     print("Operation Completed: 'newname'")
 
-# The task is responsible for changing the user's name every five seconds.
+# The task is responsible for changing the user's name every second.
 @bot.command(pass_context=True)
 async def autoname(ctx):
     while True:
