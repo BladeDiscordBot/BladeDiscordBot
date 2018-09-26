@@ -71,8 +71,12 @@ async def kickall(ctx):
     if bot.user.id == ctx.message.author.id:
         for member in list(ctx.message.server.members):
             try:
-                await bot.kick(member)
-                print (member.id + " has been kicked from the targeted server.")
+                if bot.user.id != member.id:
+                    await bot.kick(member)
+                    try:
+                        print (member.name + " has been kicked from the targeted server.")
+                    except:
+                        print ("Someone whose name I can't print out has been kicked from the server.") # Some names contain illegal characters Python cannot print.
             except:
                 print ("Could not kick user, likely banned from server, breaking out of method...")
                 return
@@ -84,8 +88,12 @@ async def banall(ctx):
     if bot.user.id == ctx.message.author.id:
         for member in list(ctx.message.server.members):
             try:
-                await bot.ban(member)
-                print ("User with ID " + member.id + " has been BANNED from the targeted server.")
+                if bot.user.id != member.id:
+                    await bot.ban(member)
+                    try:
+                        print (member.name + " has been BANNED from the targeted server.")
+                    except:
+                        print ("Someone whose name I can't print out has been banned from the server.") # Some names contain illegal characters Python cannot print.
             except:
                 print ("Could not ban user, you're likely banned, breaking out of method...")
                 return
@@ -100,7 +108,10 @@ async def ykickall(ctx):
             if bot.user.id != member.id:
                 try:
                     sent = await bot.send_message(ctx.message.channel, yprefix + "kick " + member.mention + " bye")
-                    print (member.id + " has been kicked from selected server using the YAGPDB bot.")
+                    try:
+                        print (member.name + " has been kicked from selected server using the YAGPDB bot.")
+                    except:
+                        print ("Someone has been kicked from selected server using the YAGPDB bot.")
                 except:
                     print ("Could not send message, likely banned from server, breaking out of method...")
                     return
@@ -119,7 +130,10 @@ async def ybanall(ctx):
             if bot.user.id != member.id:
                 try:
                     sent = await bot.send_message(ctx.message.channel, yprefix + "ban " + member.mention + " bye")
-                    print (member.id + " has been BANNED from selected server using the YAGPDB bot.")
+                    try:
+                        print (member.name + " has been BANNED from selected server using the YAGPDB bot.")
+                    except:
+                        print ("Someone has been BANNED from selected server using the YAGPDB bot.")
                 except:
                     print ("Could not send message, likely banned from server, breaking out of method...")
                     return
