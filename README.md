@@ -9,6 +9,8 @@ Install Python 3.6.6 and in the setup process, ensure you check off "Add Python 
 # Tips
 If the bot says "you may have been banned", "breaking out of method", or something along these lines, it means that you have either been banned from the targeted server, or you don't have permission in the server to run the command selected.
 
+Some commands may have a random delay. This is because the Discord API only allows a user to make so many requests at once. Most commands don't suffer as a result of this, except for !autoname, !namestealer, !pingall and !masspingall, but the delay is minimal nonetheless.
+
 If you cannot run the script due to some sort of error, please contact me using my e-mail bladediscordbot@gmail.com.
 
 # Free Commands
