@@ -173,7 +173,10 @@ async def newname(ctx):
         newname = genrandomusername()
         try:
             await bot.change_nickname(ctx.message.author, newname)
-    print("Operation Completed: 'newname'")
+        except:
+            print("Unable to change nickname, possibly banned from server, breaking out of method...")
+            return
+        print("Operation Completed: 'newname'")
 
 # The task is responsible for changing the user's name every five seconds.
 @bot.command(pass_context=True)
