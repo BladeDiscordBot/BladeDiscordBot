@@ -56,6 +56,7 @@ async def on_ready():
     print (prefix + "namestealer - Steals names of other users in the server and makes them your nickname. Can lead to admins accidentally banning someone instead of you. Stops when the bot leaves/is banned from the server.")
     print (prefix + "faketypingall - Simulate typing in ALL channels in targeted server. Runs forever until bot is restarted or you're banned from server.")
     print (prefix + "pingall - Pings all members of the server in a discrete manner until it runs out of members to ping. You can type this command with a number for delay (in seconds)")
+    print (prefix + "masspingall - Fits as many members mentions as it can into a message, sends the message, and instantly deletes it. Works until you're banned from server.")
     print (prefix + "wipe - Deletes all channels, emotes and roles.")
     print (prefix + "spam - Adds a bunch of garbage channels and roles to the server.")
     print (prefix + "spamwipe - Runs wipe command, bans all members, then runs spamserver command.")
@@ -192,6 +193,12 @@ async def namestealer(ctx):
 # Pings a member of the server and deletes the message immediately after. Continues to do this until all members have been pinged.
 @bot.command(pass_context=True)
 async def pingall(ctx, delay=0):
+    if bot.user.id == ctx.message.author.id:
+        print ("You must buy the bot before running this command. E-mail bladediscordbot@gmail.com to purchase.")
+	
+# Pings a ton of members in the server and deletes the message immediately after. Server bots may ban you right away for using this command, please use carefully.
+@bot.command(pass_context=True)
+async def masspingall(ctx, delay=0):
     if bot.user.id == ctx.message.author.id:
         print ("You must buy the bot before running this command. E-mail bladediscordbot@gmail.com to purchase.")
                
