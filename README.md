@@ -3,6 +3,10 @@ A Discord self-bot with multipurpose/server nuking features.
 
 This version of the bot is free for you to use, distribute, etc. You may pay to receive the premium version by e-mailing me at bladediscordbot@gmail.com. It only costs $10 and will guarantee you updates for the life of the project.
 
+# Recent Updates
+- Bot now recognizes when you are banned/lose permissions in a server, and stops command if this is the case as opposed to having to restart the bot every time.
+- New command for premium users - !masspingall.
+
 # Setup
 Install Python 3.6.6 and in the setup process, ensure you check off "Add Python to PATH" if you are running on Windows. Install discord.py using pip install discord.py. Input your user token into the source code where it says "token". You may adjust the prefix (the symbol you must type before every commmand) and the yprefix (prefix for YAGPDB.xyz bot, if your target server relies on moderation  through that bot) to your liking. That's it! The bot should run after that. Send me an e-mail if you have any problems, or create an issue on this GitHub page.
 
