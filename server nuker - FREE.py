@@ -72,11 +72,11 @@ async def kickall(ctx):
         for member in list(ctx.message.server.members):
             try:
                 await bot.kick(member)
-                print (member.id + " has been booted from the targeted server. Cya!")
+                print (member.id + " has been kicked from the targeted server.")
             except:
-                print (member.id + " could not be booted from the server. Maybe you got banned?")
-                pass
-        print ("Operation Completed: 'kickall'")
+                print ("Could not kick user, likely banned from server, breaking out of method...")
+                return
+        print("Kicked all members from server successfully.")
 
 # Bans all members from the server.
 @bot.command(pass_context=True)
@@ -85,41 +85,49 @@ async def banall(ctx):
         for member in list(ctx.message.server.members):
             try:
                 await bot.ban(member)
-                print ("User with ID " + member.id + " has been BANNED from the targeted server. Adios!")
+                print ("User with ID " + member.id + " has been BANNED from the targeted server.")
             except:
-                print ("User with ID " + member.id + " could not be banned from the server. Maybe you got banned?")
-                pass
-        print ("Operation Completed: 'banall'")
+                print ("Could not ban user, you're likely banned, breaking out of method...")
+                return
+        print ("Banned all users from server successfully.")
 
 # Kicks all members from the server, only use this command if server exclusively uses YAGPDB bot for moderation.
 @bot.command(pass_context=True)
 async def ykickall(ctx):
     if bot.user.id == ctx.message.author.id:
+        sent = None
         for member in list (ctx.message.server.members):
             if bot.user.id != member.id:
                 try:
                     sent = await bot.send_message(ctx.message.channel, yprefix + "kick " + member.mention + " bye")
-                    await bot.delete_message(sent)
                     print (member.id + " has been kicked from selected server using the YAGPDB bot.")
                 except:
-                    print ("Could NOT send/delete message. Maybe you got banned?")
+                    print ("Could not send message, likely banned from server, breaking out of method...")
+                    return
+                try:
+                    await bot.delete_message(sent)
+                except:
                     pass
-        print ("Operation Completed: 'ykickall'")
+        print ("Kicked all members from server using YAGPDB bot successfully.")
 
 # Bans all members from the server, only use this command if server exclusively uses YAGPDB bot for moderation.
 @bot.command(pass_context=True)
 async def ybanall(ctx):
     if bot.user.id == ctx.message.author.id:
+        sent = None
         for member in list (ctx.message.server.members):
             if bot.user.id != member.id:
                 try:
                     sent = await bot.send_message(ctx.message.channel, yprefix + "ban " + member.mention + " bye")
-                    await bot.delete_message(sent)
-                    print (member.id + " has been banned from selected server using the YAGPDB bot.")
+                    print (member.id + " has been BANNED from selected server using the YAGPDB bot.")
                 except:
-                    print ("Could NOT send/delete message. Maybe you got banned?")
+                    print ("Could not send message, likely banned from server, breaking out of method...")
+                    return
+                try:
+                    await bot.delete_message(sent)
+                except:
                     pass
-        print ("Operation Completed: 'ybanall'")
+        print ("Banned all members from server using YAGPDB bot successfully.")
 
 # Pings a random user in the targeted server.
 @bot.command(pass_context=True)
@@ -135,7 +143,8 @@ async def ping(ctx):
            print("User has been pinged.")
            await bot.delete_message(sent)
         except:
-            print("Problem sending or deleting a message, you may have been banned.")
+            print("Problem sending or deleting a message, you may have been banned, breaking out of method...")
+            return
         print("Operation Completed: 'ping'")
 
 # Simulate typing a message in targeted channel.
@@ -147,8 +156,8 @@ async def faketyping(ctx):
                 await bot.send_typing(ctx.message.channel)
                 time.sleep(2.5)
             except:
-                print("Problem simulating typing, you may have been banned.")
-        print ("Operation Completed: 'faketyping'") # Should never really get hit.
+                print("Problem simulating typing, you may have been banned, breaking out of method...")
+                return
 
 @bot.command(pass_context=True)
 async def stop(ctx):
@@ -162,16 +171,20 @@ async def stop(ctx):
 async def newname(ctx):
     if bot.user.id == ctx.message.author.id:
         newname = genrandomusername()
-        await bot.change_nickname(ctx.message.author, newname)
+        try:
+            await bot.change_nickname(ctx.message.author, newname)
     print("Operation Completed: 'newname'")
 
-# The task is responsible for changing the user's name every second.
+# The task is responsible for changing the user's name every five seconds.
 @bot.command(pass_context=True)
 async def autoname(ctx):
     while True:
         newname = genrandomusername()
-        await bot.change_nickname(ctx.message.author, newname)
-        #time.sleep(0.1)
+        try:
+            await bot.change_nickname(ctx.message.author, newname)
+        except:
+            print("Unable to change nickname in server, you may have been banned, breaking out of method...")
+            return
 		
 # Used by autoname and newname commands.
 def genrandomusername():
