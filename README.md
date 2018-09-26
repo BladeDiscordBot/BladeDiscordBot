@@ -39,13 +39,13 @@ Disconnects the bot, stops all commands, and quits the application.
 You must purchase the bot to use these commands. Contact me at bladediscordbot@gmail.com if you are interested.
 
 ## namestealer
-Changes your nickname in targeted server to another member's username every second.
+Changes your nickname in targeted server to another member's username every second. Lasts until you are banned from the server or leave.
 
 ## pingall
-Constantly pings all members of the server, one by one, instantly deleting each message. Lasts until you are banned from the server or exit the bot.
+Constantly pings all members of the server, one by one, instantly deleting each message. Lasts until you are banned from the server or leave.
 
 ## masspingall (NEW)
-Fits as many member's mentions as it can into one message, sends the message and instantly deletes it. Keeps sending these messages until you are banned or stop the bot.
+Fits as many member's mentions as it can into one message, sends the message and instantly deletes it. Keeps sending these messages until you are banned or leave the server.
 
 ## faketypingall
 Simulates user typing in all available channels. Discord API prevents too many calls to this, so this command is a little inconsistent, but still very effective.
