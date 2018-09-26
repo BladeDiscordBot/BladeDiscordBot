@@ -6,6 +6,11 @@ This version of the bot is free for you to use, distribute, etc. You may pay to 
 # Setup
 Install Python 3.6.6 and in the setup process, ensure you check off "Add Python to PATH" if you are running on Windows. Install discord.py using pip install discord.py. Input your user token into the source code where it says "token". You may adjust the prefix (the symbol you must type before every commmand) and the yprefix (prefix for YAGPDB.xyz bot, if your target server relies on moderation  through that bot) to your liking. That's it! The bot should run after that. Send me an e-mail if you have any problems, or create an issue on this GitHub page.
 
+# Tips
+If the bot says "you may have been banned", "breaking out of method", or something along these lines, it means that you have either been banned from the targeted server, or you don't have permission in the server to run the command selected.
+
+If you cannot run the script due to some sort of error, please contact me using my e-mail bladediscordbot@gmail.com.
+
 # Free Commands
 These commands can be run by cloning this repository and running the Python script.
 
