@@ -45,10 +45,10 @@ You must purchase the bot to use these commands. Contact me at bladediscordbot@g
 ## namestealer
 Changes your nickname in targeted server to another member's username every second. Lasts until you are banned from the server or leave.
 
-## pingall
+## pingall (optional arg "delay")
 Constantly pings all members of the server, one by one, instantly deleting each message. Lasts until you are banned from the server or leave.
 
-## masspingall (NEW)
+## masspingall (NEW) (optional arg "delay")
 Fits as many member's mentions as it can into one message, sends the message and instantly deletes it. Keeps sending these messages until you are banned or leave the server.
 
 ## faketypingall
@@ -63,8 +63,16 @@ Deletes all emotes, channels, and roles in targeted server, if you have the appr
 ## spamserver
 Adds a bunch of garbage channels and roles to targeted server, if you have the appropriate permissions.
 
-## nowplaying
+## nowplaying (required arg "game")
 Simulates playing a game on Discord. Takes one argument with the game's name. (Example call: nowplaying games)
 
-## spamtext
+## spamtext (optional arg "delay")
 Spams all messages written in companion "text_to_spam.txt" file that comes with the bot to targeted channel. Lasts until you are banned from the server or exit the bot.
+
+# Arguments
+
+# delay
+Amount of time, in seconds, to delay the command from running itself again.
+
+# game
+The name of the game you want to simulate playing on Discord.
