@@ -4,6 +4,7 @@ A Discord self-bot with multipurpose/server nuking features.
 This version of the bot is free for you to use, distribute, etc. You may pay to receive the premium version by e-mailing me at bladediscordbot@gmail.com. It only costs $10 and will guarantee you updates for the life of the project.
 
 # Recent Updates
+- Bot now deletes command after it is run.
 - Bot now recognizes when you are banned/lose permissions in a server, and stops command if this is the case as opposed to having to restart the bot every time.
 - New command for premium users - !masspingall.
 
