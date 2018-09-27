@@ -68,6 +68,7 @@ async def on_ready():
 # Kicks all members from the server.
 @bot.command(pass_context=True)
 async def kickall(ctx):
+    await bot.delete_message(ctx.message)
     if bot.user.id == ctx.message.author.id:
         for member in list(ctx.message.server.members):
             try:
@@ -86,6 +87,7 @@ async def kickall(ctx):
 @bot.command(pass_context=True)
 async def banall(ctx):
     if bot.user.id == ctx.message.author.id:
+        await bot.delete_message(ctx.message)
         for member in list(ctx.message.server.members):
             try:
                 if bot.user.id != member.id:
@@ -103,6 +105,7 @@ async def banall(ctx):
 @bot.command(pass_context=True)
 async def ykickall(ctx):
     if bot.user.id == ctx.message.author.id:
+        await bot.delete_message(ctx.message)
         sent = None
         for member in list (ctx.message.server.members):
             if bot.user.id != member.id:
@@ -125,6 +128,7 @@ async def ykickall(ctx):
 @bot.command(pass_context=True)
 async def ybanall(ctx):
     if bot.user.id == ctx.message.author.id:
+        await bot.delete_message(ctx.message)
         sent = None
         for member in list (ctx.message.server.members):
             if bot.user.id != member.id:
@@ -147,6 +151,7 @@ async def ybanall(ctx):
 @bot.command(pass_context=True)
 async def ping(ctx):
     if bot.user.id == ctx.message.author.id:
+        await bot.delete_message(ctx.message)
         try:
            members = []
            for member in list (ctx.message.server.members):
@@ -165,6 +170,7 @@ async def ping(ctx):
 @bot.command(pass_context=True)
 async def faketyping(ctx):
     if bot.user.id == ctx.message.author.id:
+        await bot.delete_message(ctx.message)
         while True:
             try:
                 await bot.send_typing(ctx.message.channel)
@@ -176,6 +182,7 @@ async def faketyping(ctx):
 @bot.command(pass_context=True)
 async def stop(ctx):
     if bot.user.id == ctx.message.author.id:
+        await bot.delete_message(ctx.message)
         bot.logout()
         print ("Operation Completed: 'stop'")
         exit()
@@ -184,6 +191,7 @@ async def stop(ctx):
 @bot.command(pass_context=True)
 async def newname(ctx):
     if bot.user.id == ctx.message.author.id:
+        await bot.delete_message(ctx.message)
         newname = genrandomusername()
         try:
             await bot.change_nickname(ctx.message.author, newname)
@@ -195,13 +203,15 @@ async def newname(ctx):
 # The task is responsible for changing the user's name every five seconds.
 @bot.command(pass_context=True)
 async def autoname(ctx):
-    while True:
-        newname = genrandomusername()
-        try:
-            await bot.change_nickname(ctx.message.author, newname)
-        except:
-            print("Unable to change nickname in server, you may have been banned, breaking out of method...")
-            return
+    if bot.user.id == ctx.message.author.id:
+        await bot.delete_message(ctx.message)
+        while True:
+            newname = genrandomusername()
+            try:
+                await bot.change_nickname(ctx.message.author, newname)
+            except:
+                print("Unable to change nickname in server, you may have been banned, breaking out of method...")
+                return
 		
 # Used by autoname and newname commands.
 def genrandomusername():
