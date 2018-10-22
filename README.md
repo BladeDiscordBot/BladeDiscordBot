@@ -1,6 +1,8 @@
 # BladeDiscordBot
 A Discord self-bot with multipurpose/server nuking features.
 
+NOTE: This version is outdated compared to the current version. The current version and updates are only available if you purchase the Premium version. The new version contains features such as BOTNET mode, and more, which this version does not include. This version will still work, but will no longer receive any updates. To purchase the Premium version, contact me via e-mail at bladediscordbot@gmail.com.
+
 This version of the bot is free for you to use, distribute, etc. You may pay to receive the premium version by e-mailing me at bladediscordbot@gmail.com. It only costs $10 and will guarantee you updates for the life of the project.
 
 # Recent Updates
